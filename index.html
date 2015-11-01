@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Tree N-ary es5</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var Fury = {};
+
+	</script>
+	<script src="./base.js"></script>
+	<script src="./class.js"></script>
+	<script src="./node.js"></script>
+	<script src="./tree.js"></script>
+	<script type="text/javascript">
+
+		// - Data Struture
+		var config = {
+			data: "root", /* Type 'non-leaf node' */
+			children: [{
+				data: "A", /* Type 'leaf node' */
+				children: null
+			}, {
+				data: "B", /* Type 'leaf node' */
+				children: null
+			}, {
+				data: 0, /* Type 'non-leaf node' */
+				children: [{
+					data: "C", /* Type 'leaf node' */
+					children: null
+				}, {
+					data: "D", /* Type 'leaf node' */
+					children: null
+				}]
+			}]
+		};
+
+		// - Instance
+		var Tree = new Fury.Tree(config);
+		var Node = Tree.root.children[2];
+
+		console.log("Tree: "
+
+		// - Tree Methods
+		,Tree.exists("A") /* Return 'Boolean' true */
+		,Tree.find(Node, "A") /* Return 'Boolean' false */
+		,Tree.findNode(Node, "C") /* Return 'Object' node */
+		,Tree.getMaxDepth() /* Return 'Number' 3 */
+		,Tree.getNumberOfNodes() /* Return 'Number' 6 */
+		,Tree.getPreOrderTraversal() /* Return 'Array' list pre order node */
+		,Tree.getPostOrderTraversal() /* Return 'Array' list post order node */
+
+		);
+
+		var Node = new Fury.Node({data: "A", children: null});
+
+		console.log("Node: "
+
+		// - Node Methods
+		,Node.addChild(new Fury.Node({data: "B", children: null}))
+		,Node.addChildAt(1, new Fury.Node({data: "C", children: null}))
+		,Node.getChildAt(1)
+		,Node.removeChildAt(0)
+		,Node.removeThisIfItsAChild(Node.getChildAt(0))
+		,Node.getChildren()
+		,Node.setChildren([new Fury.Node({data: "D", children: null})])
+		,Node.removeChildren()
+		,Node.getData()
+		,Node.setData("E")
+		,Node.setParent(Tree.root)
+		,Node.getParent()
+		,Node.equals(Node) /* Return 'Boolean' true */
+		,Node.toString() /* Return 'String' stringify object */
+
+		);
+
+	</script>
+</body>
+</html>
