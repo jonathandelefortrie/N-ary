@@ -4,9 +4,7 @@
 
     var Class = {
         create: function(obj) {
-            var Fn = null;
-            /*jshint -W054 */
-            Fn = new Function();
+            var Fn = new Function();
             Fn.prototype = obj.prototype;
             return new Fn();
         },
@@ -21,11 +19,6 @@
             obj.constructor = proto.constructor;
             obj.constructor.superclass = superclass;
             return obj;
-        },
-        bind: function(obj, args) {
-            var bound = this.create(obj);
-            obj.apply(bound, args);
-            return bound;
         }
     };
 
